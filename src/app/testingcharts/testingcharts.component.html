@@ -1,0 +1,159 @@
+<div class="grid p-fluid">
+  <div class="col-12">
+    <div class="card px-6 py-6">
+      <p-toast></p-toast>
+      <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+          <div class="my-2"></div>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+          <button
+            pButton
+            pRipple
+            label="Report"
+            icon="pi pi-receipt"
+            class="p-button-help"
+            (click)="openNew()"
+          ></button>
+        </ng-template>
+      </p-toolbar>
+    </div>
+  </div>
+  <div class="col-12 lg:col-6">
+    <div class="card">
+      <h5>Employee Age Distribution</h5>
+      <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
+    </div>
+
+    <div class="card flex flex-column align-items-center">
+      <h5 class="text-left w-full">Pie Chart</h5>
+      <p-chart
+        type="doughnut"
+        [data]="pieData"
+        [options]="pieOptions"
+      ></p-chart>
+    </div>
+
+    <div class="card flex flex-column align-items-center">
+      <h5 class="text-left w-full">Column Chart</h5>
+      <p-chart
+        type="bar"
+        [data]="columnData"
+        [options]="columnOptions"
+        style="width: 800px; height: 400px"
+      >
+      </p-chart>
+    </div>
+  </div>
+  <div class="col-12 lg:col-6">
+    <div class="card">
+      <h5>Number of Employees by Department</h5>
+      <p-chart
+        type="bar"
+        [data]="horizontalBarData"
+        [options]="horizontalBarOptions"
+      ></p-chart>
+    </div>
+    <div class="card flex flex-column align-items-center">
+      <h5>Age vs Salary Scatter Plot</h5>
+      <p-chart
+        type="scatter"
+        [data]="scatterData"
+        [options]="scatterOptions"
+        style="width: 800px; height: 400px"
+      ></p-chart>
+    </div>
+    <div class="card flex flex-column align-items-center">
+      <h5>Gender Distribution Pie Chart</h5>
+      <p-chart
+        type="pie"
+        [data]="genderData"
+        [options]="genderOptions"
+      ></p-chart>
+    </div>
+  </div>
+  <div class="col-12 lg:col-6">
+    <div class="card flex flex-column align-items-center">
+      <h5>Employment Type Distribution Pie Chart</h5>
+      <p-chart
+        type="doughnut"
+        [data]="employmentTypeData"
+        [options]="employmentTypeOptions"
+      ></p-chart>
+    </div>
+    <div class="card">
+      <h5>Employees by Joining Date Line Chart</h5>
+      <p-chart
+        type="line"
+        [data]="employeesByJoiningDateData"
+        [options]="employeesByJoiningDateOptions"
+        style="width: 800px; height: 400px"
+      ></p-chart>
+    </div>
+    <div class="card flex flex-column align-items-center">
+      <h5>Average Age by Department</h5>
+      <p-chart
+        type="bar"
+        [data]="averageAgeByDepartmentData"
+        [options]="averageAgeByDepartmentOptions"
+        style="width: 800px; height: 400px"
+      ></p-chart>
+    </div>
+  </div>
+  <div class="col-12 lg:col-6">
+    <div class="card">
+      <h5>Employee Count Over Time</h5>
+      <p-chart type="line" [data]="lineData" [options]="lineOptions"></p-chart>
+    </div>
+    <div class="card flex flex-column align-items-center">
+      <h5 class="text-left w-full">Polar Area Chart</h5>
+      <p-chart
+        type="polarArea"
+        [data]="polarData"
+        [options]="polarOptions"
+        style="width: 400px; height: 400px"
+      ></p-chart>
+    </div>
+  </div>
+</div>
+<p-dialog
+  [(visible)]="ClaimDialog"
+  [style]="{ width: '450px' }"
+  header=" Fill A Claim "
+  [modal]="true"
+  class="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        pInputTextarea
+        [(ngModel)]="claim.content"
+        required
+        rows="3"
+        cols="20"
+      ></textarea>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      pRipple
+      label="Cancel"
+      icon="pi pi-times"
+      class="p-button-text"
+      (click)="hideDialog()"
+    ></button>
+    <button
+      pButton
+      pRipple
+      label="Save"
+      icon="pi pi-check"
+      class="p-button-text"
+      (click)="saveClaim()"
+    ></button>
+  </ng-template>
+</p-dialog>

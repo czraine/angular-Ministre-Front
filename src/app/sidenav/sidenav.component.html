@@ -1,0 +1,37 @@
+<div
+  class="sidebar"
+  [ngClass]="{ showSidebar: isSidebarVisible, hideSidebar: !isSidebarVisible }"
+  [@fadeInOut]
+>
+  <ul>
+    <li>
+      <a routerLinkActive="active" (click)="toggleSubmenu()">
+        <i class="pi pi-dashboard menu-icon"></i>
+        <span class="menu-text">Dashboard</span>
+        <i class="pi pi-angle-down sub-menu-icon" *ngIf="isSubmenuOpen"></i>
+        <i class="pi pi-angle-right sub-menu-icon" *ngIf="!isSubmenuOpen"></i>
+      </a>
+      <ul *ngIf="isSubmenuOpen" class="sub-menu">
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="active">
+            <i class="pi pi-eye menu-icon"></i>
+            <span class="menu-text">Details</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <ul class="sub-menu">
+        <li *ngFor="let minister of ministers">
+          <a
+            [routerLink]="['/dashboard', minister.id]"
+            routerLinkActive="active"
+          >
+            <i class="pi pi-eye menu-icon"></i>
+            <span class="menu-text">{{ minister.name }}'s Dashboard</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
