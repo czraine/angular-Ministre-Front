@@ -1,0 +1,35 @@
+<!-- toolbar.component.html -->
+<mat-toolbar class="custom-toolbar">
+  <button
+    pButton
+    pRipple
+    class="neumorphic-button"
+    class="p-button-secondary p-button-text example-icon"
+    aria-label="Toggle Sidebar"
+    (click)="toggleSidebar()"
+  >
+    <i class="pi pi pi-bars sub-menu-icon"></i>
+  </button>
+  &nbsp;
+  <span><h2 style="color: white">Ministre Management</h2></span>
+  <span class="example-spacer"></span>
+
+  &nbsp;
+  <button
+    pButton
+    pRipple
+    routerLink="/ManageMinistre"
+    routerLinkActive="active"
+    type="button"
+    label="Add Ministre "
+    class="p-button-secondary p-button-text"
+  ></button>
+  <button
+    pButton
+    pRipple
+    type="button"
+    label="Logout"
+    (click)="logout()"
+    class="p-button-danger p-button-text"
+  ></button>
+</mat-toolbar>

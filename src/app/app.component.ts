@@ -8,13 +8,4 @@ import { SidebarService } from './Services/SideBar.service';
 })
 export class AppComponent {
   title = 'angular-ministre';
-  isSidebarVisible = true;
-  constructor(private sidebarService: SidebarService) {}
-
-  ngOnInit() {
-    this.sidebarService.sidebarVisibility$.subscribe((isVisible) => {
-      console.log(isVisible);
-      this.isSidebarVisible = isVisible;
-    });
-  }
 }
